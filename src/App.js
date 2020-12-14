@@ -1,25 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import Grid from './components/Grid';
+import React, { useRef } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const gridContext = React.createContext();
+
+class App extends React.Component {
+
+  constructor() {
+    super();
+    this.grid = React.createRef();
+  }
+
+  dostuff = () => {
+    console.log("yo what up");
+  }
+  resetGrid = () => {
+    this.grid.current.reset();
+  }
+
+  reorderGrid = () => {
+    this.grid.current.reorder();
+  }
+
+  render(){
+     
+
+    return (
+      
+      <div className="App">
+        
+        <div className="navbar">
+                <button className="navbar-btn" onClick={this.reorderGrid}>Reorder</button>
+                <button className="navbar-btn" onClick={this.resetGrid}>Reset</button>
+                 
+            </div>
+        <div className="grid-box">
+          <Grid ref={this.grid}/>
+          <button onClick={this.resetGrid}>Reset</button>
+        </div>
+        
+      </div>
+     
+    );
+   }
+
 }
 
 export default App;
