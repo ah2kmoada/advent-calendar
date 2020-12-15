@@ -39,7 +39,7 @@ class Grid extends React.Component {
        this.setState({dates: newDates});
        */
         let newDates = [...this.state.dates];
-        newDates[number - 1] = {...newDates[number - 1], open: true };
+        newDates[number - 1] = { ...newDates[number - 1], open: true };
         this.setState({ dates: newDates });
 
 
@@ -72,41 +72,40 @@ class Grid extends React.Component {
 
     render() {
         console.log(this.state.dates);
-        return ( <
-            div className = "grid" > {
+        return (
+            <div className="grid"> {
                 this.state.dates.map(date => {
-                    return ( <
-                        Date key = { date.number }
-                        number = { date.number }
-                        open = { date.open }
-                        openDate = { this.openDate }
-                        position = { date.position }
-                        joke = { date.joke }
-                        />
+                    return (<
+                        Date key={date.number}
+                        number={date.number}
+                        open={date.open}
+                        openDate={this.openDate}
+                        position={date.position}
+                        joke={date.joke}
+                    />
                     );
                 })
             }
 
-            <
-            /div>
+            </div>
         );
     }
 
     generateUniqueNumber = (numberSet) => {
-        let number = Math.floor((100 - 1) * Math.random()) + 1;
+                let number = Math.floor((100 - 1) * Math.random()) + 1;
 
         while (numberSet.has(number)) {
-            number = Math.floor((100 - 1) * Math.random()) + 1;
+                number = Math.floor((100 - 1) * Math.random()) + 1;
         }
         return number;
     }
 
     generateNewDates = (jokes) => {
-        let positions = new Set();
+                let positions = new Set();
         let newDates = [];
 
         for (let i = 1; i <= 24; i++) {
-            let position = this.generateUniqueNumber(positions);
+                let position = this.generateUniqueNumber(positions);
             positions.add(position);
             newDates.push({
                 "number": i,

@@ -2,10 +2,7 @@ import React from 'react';
 
 class Date extends React.Component {
 
-    constructor(props) {
-        super(props);
-         
-    }
+ 
 
     openHandler = (number) => {
         this.props.openDate(number);
@@ -15,7 +12,7 @@ class Date extends React.Component {
 
     render() {
         let row, column;
-        if (this.props.position.length == 2) {
+        if (this.props.position.length === 2) {
             row = this.props.position[0];
             column = this.props.position[1];
             row++;

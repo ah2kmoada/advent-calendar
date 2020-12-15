@@ -1,8 +1,8 @@
 import './App.css';
 import Grid from './components/Grid';
-import React, { useRef } from 'react';
+import React from 'react';
 
-const gridContext = React.createContext();
+
 
 class App extends React.Component {
 
@@ -11,9 +11,7 @@ class App extends React.Component {
     this.grid = React.createRef();
   }
 
-  dostuff = () => {
-    console.log("yo what up");
-  }
+ 
   resetGrid = () => {
     this.grid.current.reset();
   }
@@ -36,7 +34,7 @@ class App extends React.Component {
             </div>
         <div className="grid-box">
           <Grid ref={this.grid}/>
-          <button onClick={this.resetGrid}>Reset</button>
+         
         </div>
         
       </div>
