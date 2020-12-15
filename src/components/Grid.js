@@ -120,7 +120,7 @@ class Grid extends React.Component {
 
 
     async componentDidMount() {
-        const response = await fetch("http://api.icndb.com/jokes/random/24");
+        const response = await fetch("https://api.icndb.com/jokes/random/24");
         const joke_data = await response.json();
         const jokes = await joke_data.value.map(j => j.joke);
         //console.log(jokes);
