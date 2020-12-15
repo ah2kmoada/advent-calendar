@@ -1,6 +1,6 @@
 {
     "homepage": "https://ah2kmoada.github.io/advent-calendar",
-    "name": "calendar",
+    "name": "advent-calendar",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
