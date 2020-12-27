@@ -48,7 +48,7 @@ class Grid extends React.Component {
     reorder = () => {
         let dates = [...this.state.dates];
         let positions = new Set();
-        let newDates = dates.map(date => {
+        const newDates = this.state.dates.map(date => {
             const newPosition = this.generateUniqueNumber(positions);
             positions.add(newPosition);
             date.position = newPosition.toString();
@@ -73,16 +73,16 @@ class Grid extends React.Component {
     render() {
         console.log(this.state.dates);
         return (
-            <div className="grid"> {
+        <div className="grid" > {
                 this.state.dates.map(date => {
-                    return (<
-                        Date key={date.number}
+                    return (
+                        <Date key={date.number}
                         number={date.number}
                         open={date.open}
                         openDate={this.openDate}
                         position={date.position}
                         joke={date.joke}
-                    />
+                        />
                     );
                 })
             }
@@ -92,7 +92,7 @@ class Grid extends React.Component {
     }
 
     generateUniqueNumber = (numberSet) => {
-                let number = Math.floor((100 - 1) * Math.random()) + 1;
+        let number = Math.floor((100 - 1) * Math.random()) + 1;
 
         while (numberSet.has(number)) {
                 number = Math.floor((100 - 1) * Math.random()) + 1;
@@ -101,11 +101,11 @@ class Grid extends React.Component {
     }
 
     generateNewDates = (jokes) => {
-                let positions = new Set();
+        let positions = new Set();
         let newDates = [];
 
         for (let i = 1; i <= 24; i++) {
-                let position = this.generateUniqueNumber(positions);
+            let position = this.generateUniqueNumber(positions);
             positions.add(position);
             newDates.push({
                 "number": i,

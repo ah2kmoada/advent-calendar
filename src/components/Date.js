@@ -4,8 +4,8 @@ class Date extends React.Component {
 
  
 
-    openHandler = (number) => {
-        this.props.openDate(number);
+    openHandler = () => {
+        this.props.openDate(this.props.number);
     }
 
 
@@ -29,7 +29,7 @@ class Date extends React.Component {
         if (!this.props.open) {
             return (
                 <div className="date" style={gridPosition}
-                onClick={() => this.openHandler(this.props.number)}
+                onClick={this.openHandler}
                 >
                     {this.props.number}
                 </div>
